@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect x="10" y="25" width="72" height="50" rx="8" fill="none" stroke="#00d4a4" stroke-width="4"/>
+  <rect x="82" y="37" width="8" height="26" rx="3" fill="#00d4a4"/>
+  <rect x="18" y="33" width="48" height="34" rx="4" fill="#00d4a4" opacity="0.7"/>
+  <line x1="50" y1="25" x2="50" y2="75" stroke="#060d1f" stroke-width="2"/>
+  <text x="29" y="55" font-family="monospace" font-size="16" font-weight="bold" fill="#060d1f">Na</text>
+  <text x="56" y="55" font-family="monospace" font-size="12" fill="#060d1f" opacity="0.5">+</text>
+</svg>
