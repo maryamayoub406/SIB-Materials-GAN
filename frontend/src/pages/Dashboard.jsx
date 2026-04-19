@@ -100,7 +100,7 @@ export default function Dashboard() {
       <div className="page-grid-4" style={{ marginBottom: 32 }}>
         {[
           { label: 'Materials Generated', value: loading ? '...' : '10,000', sub: '100% novel compositions', color: 'teal', icon: '⚛' },
-          { label: 'Model Accuracy', value: loading ? '...' : '86.2%', sub: 'Overall pipeline score', color: 'blue', icon: '🎯' },
+          { label: 'Model Accuracy', value: loading ? '...' : '79.2%', sub: 'Overall pipeline score', color: 'blue', icon: '🎯' },
           { label: 'Top Energy Density', value: loading ? '...' : `${stats?.top_energy_density?.toFixed(0) ?? 987} Wh/kg`, sub: `${((stats?.top_energy_density ?? 987) / 175).toFixed(1)}× commercial SIB`, color: 'gold', icon: '⚡' },
           { label: 'Promising Candidates', value: loading ? '...' : '2,500', sub: 'Screened & validated', color: 'green', icon: '✓' },
         ].map((card, i) => (
