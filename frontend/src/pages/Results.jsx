@@ -113,29 +113,31 @@ export default function Results() {
           {/* Summary table */}
           <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 'var(--radius-lg)', padding: 24 }}>
             <div className="section-title">Detailed Model Evaluation</div>
-            <table className="data-table">
-              <thead><tr><th>Component</th><th>Metric</th><th>Value</th><th>MAE</th><th>Assessment</th></tr></thead>
-              <tbody>
-                {[
-                  { comp: 'Band Gap Predictor', metric: 'R²', val: '0.530', mae: '0.64 eV', status: ' Good' },
-                  { comp: 'Density Predictor', metric: 'R²', val: '0.820', mae: '0.20 g/cm³', status: ' Excellent' },
-                  { comp: 'Stability Predictor', metric: 'R²', val: '0.230', mae: '0.02 eV/atom', status: ' Fair' },
-                  { comp: 'GAN Generator', metric: 'Novelty', val: '100%', mae: '—', status: ' Perfect' },
-                  { comp: 'Chemical Validity', metric: 'Pass Rate', val: '100%', mae: '—', status: ' Perfect' },
-                  { comp: 'VAE Generator', metric: 'Coverage', val: '87%', mae: '—', status: ' Good' },
-                  { comp: 'LSTM Degradation', metric: 'RMSE', val: '4.2 mAh/g', mae: '3.1 mAh/g', status: ' Good' },
-                  { comp: 'Overall Pipeline', metric: 'Accuracy', val: '79.2%', mae: '—', status: ' Strong' },
-                ].map((r, i) => (
-                  <tr key={i}>
-                    <td style={{ fontWeight: 600 }}>{r.comp}</td>
-                    <td>{r.metric}</td>
-                    <td><span style={{ fontFamily: 'JetBrains Mono', color: 'var(--teal)', fontWeight: 700 }}>{r.val}</span></td>
-                    <td style={{ color: 'var(--text-muted)' }}>{r.mae}</td>
-                    <td>{r.status}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <div className="table-responsive">
+              <table className="data-table">
+                <thead><tr><th>Component</th><th>Metric</th><th>Value</th><th>MAE</th><th>Assessment</th></tr></thead>
+                <tbody>
+                  {[
+                    { comp: 'Band Gap Predictor', metric: 'R²', val: '0.530', mae: '0.64 eV', status: ' Good' },
+                    { comp: 'Density Predictor', metric: 'R²', val: '0.820', mae: '0.20 g/cm³', status: ' Excellent' },
+                    { comp: 'Stability Predictor', metric: 'R²', val: '0.230', mae: '0.02 eV/atom', status: ' Fair' },
+                    { comp: 'GAN Generator', metric: 'Novelty', val: '100%', mae: '—', status: ' Perfect' },
+                    { comp: 'Chemical Validity', metric: 'Pass Rate', val: '100%', mae: '—', status: ' Perfect' },
+                    { comp: 'VAE Generator', metric: 'Coverage', val: '87%', mae: '—', status: ' Good' },
+                    { comp: 'LSTM Degradation', metric: 'RMSE', val: '4.2 mAh/g', mae: '3.1 mAh/g', status: ' Good' },
+                    { comp: 'Overall Pipeline', metric: 'Accuracy', val: '79.2%', mae: '—', status: ' Strong' },
+                  ].map((r, i) => (
+                    <tr key={i}>
+                      <td style={{ fontWeight: 600 }}>{r.comp}</td>
+                      <td>{r.metric}</td>
+                      <td><span style={{ fontFamily: 'JetBrains Mono', color: 'var(--teal)', fontWeight: 700 }}>{r.val}</span></td>
+                      <td style={{ color: 'var(--text-muted)' }}>{r.mae}</td>
+                      <td>{r.status}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </motion.div>
       )}
@@ -228,25 +230,27 @@ export default function Results() {
             </div>
             <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 'var(--radius-lg)', padding: 24 }}>
               <div className="section-title">Uncertainty Estimation</div>
-              <table className="data-table">
-                <thead><tr><th>Property</th><th>Std Dev</th><th>95% CI</th><th>Coverage</th></tr></thead>
-                <tbody>
-                  {[
-                    { prop: 'Band Gap', std: '0.64', ci: '±1.25 eV', cov: '94.2%' },
-                    { prop: 'Density', std: '0.20', ci: '±0.39 g/cm³', cov: '96.1%' },
-                    { prop: 'Stability', std: '0.02', ci: '±0.04 eV/atom', cov: '92.5%' },
-                    { prop: 'Voltage', std: '0.15', ci: '±0.29 V', cov: '95.3%' },
-                    { prop: 'Capacity', std: '22.1', ci: '±43.3 mAh/g', cov: '93.8%' },
-                  ].map((r, i) => (
-                    <tr key={i}>
-                      <td style={{ fontWeight: 600 }}>{r.prop}</td>
-                      <td style={{ fontFamily: 'JetBrains Mono', color: 'var(--blue)' }}>{r.std}</td>
-                      <td style={{ fontFamily: 'JetBrains Mono', color: 'var(--gold)' }}>{r.ci}</td>
-                      <td style={{ color: 'var(--green)', fontWeight: 600 }}>{r.cov}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              <div className="table-responsive">
+                <table className="data-table">
+                  <thead><tr><th>Property</th><th>Std Dev</th><th>95% CI</th><th>Coverage</th></tr></thead>
+                  <tbody>
+                    {[
+                      { prop: 'Band Gap', std: '0.64', ci: '±1.25 eV', cov: '94.2%' },
+                      { prop: 'Density', std: '0.20', ci: '±0.39 g/cm³', cov: '96.1%' },
+                      { prop: 'Stability', std: '0.02', ci: '±0.04 eV/atom', cov: '92.5%' },
+                      { prop: 'Voltage', std: '0.15', ci: '±0.29 V', cov: '95.3%' },
+                      { prop: 'Capacity', std: '22.1', ci: '±43.3 mAh/g', cov: '93.8%' },
+                    ].map((r, i) => (
+                      <tr key={i}>
+                        <td style={{ fontWeight: 600 }}>{r.prop}</td>
+                        <td style={{ fontFamily: 'JetBrains Mono', color: 'var(--blue)' }}>{r.std}</td>
+                        <td style={{ fontFamily: 'JetBrains Mono', color: 'var(--gold)' }}>{r.ci}</td>
+                        <td style={{ color: 'var(--green)', fontWeight: 600 }}>{r.cov}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -258,33 +262,35 @@ export default function Results() {
           {loading ? <LoadingSpinner text="Loading top candidates..." /> : (
             <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 'var(--radius-lg)', padding: 24 }}>
               <div className="section-title">🏆 Top Ranked Candidates</div>
-              <table className="data-table">
-                <thead>
-                  <tr><th>#</th><th>Formula</th><th>Energy (Wh/kg)</th><th>Voltage (V)</th><th>Capacity (mAh/g)</th><th>Stability</th><th>Score</th></tr>
-                </thead>
-                <tbody>
-                  {ranked.map((m, i) => (
-                    <tr key={i}>
-                      <td style={{ color: 'var(--gold)', fontWeight: 700 }}>
-                        {i < 3 ? ['🥇', '🥈', '🥉'][i] : `#${m.rank}`}
-                      </td>
-                      <td><span style={{ fontFamily: 'JetBrains Mono', color: 'var(--teal)', fontSize: 12 }}>{m.formula}</span></td>
-                      <td><b style={{ color: 'var(--gold)' }}>{(m.energy_density ?? 0).toFixed(1)}</b></td>
-                      <td>{(m.voltage ?? 0).toFixed(2)}</td>
-                      <td>{(m.specific_capacity ?? 0).toFixed(0)}</td>
-                      <td><span style={{ color: (m.stability ?? 0) < 0.05 ? 'var(--green)' : 'var(--gold)' }}>{(m.stability ?? 0).toFixed(3)}</span></td>
-                      <td>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                          <div style={{ flex: 1, height: 5, background: 'var(--bg-surface)', borderRadius: 3 }}>
-                            <div style={{ height: '100%', width: `${m.performance_score ?? 75}%`, background: 'linear-gradient(90deg, var(--teal), var(--blue))', borderRadius: 3 }} />
+              <div className="table-responsive">
+                <table className="data-table">
+                  <thead>
+                    <tr><th>#</th><th>Formula</th><th>Energy (Wh/kg)</th><th>Voltage (V)</th><th>Capacity (mAh/g)</th><th>Stability</th><th>Score</th></tr>
+                  </thead>
+                  <tbody>
+                    {ranked.map((m, i) => (
+                      <tr key={i}>
+                        <td style={{ color: 'var(--gold)', fontWeight: 700 }}>
+                          {i < 3 ? ['🥇', '🥈', '🥉'][i] : `#${m.rank}`}
+                        </td>
+                        <td><span style={{ fontFamily: 'JetBrains Mono', color: 'var(--teal)', fontSize: 12 }}>{m.formula}</span></td>
+                        <td><b style={{ color: 'var(--gold)' }}>{(m.energy_density ?? 0).toFixed(1)}</b></td>
+                        <td>{(m.voltage ?? 0).toFixed(2)}</td>
+                        <td>{(m.specific_capacity ?? 0).toFixed(0)}</td>
+                        <td><span style={{ color: (m.stability ?? 0) < 0.05 ? 'var(--green)' : 'var(--gold)' }}>{(m.stability ?? 0).toFixed(3)}</span></td>
+                        <td>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                            <div style={{ flex: 1, height: 5, background: 'var(--bg-surface)', borderRadius: 3 }}>
+                              <div style={{ height: '100%', width: `${m.performance_score ?? 75}%`, background: 'linear-gradient(90deg, var(--teal), var(--blue))', borderRadius: 3 }} />
+                            </div>
+                            <span style={{ color: 'var(--teal)', fontWeight: 700, fontSize: 12, minWidth: 36 }}>{(m.performance_score ?? 75).toFixed(1)}</span>
                           </div>
-                          <span style={{ color: 'var(--teal)', fontWeight: 700, fontSize: 12, minWidth: 36 }}>{(m.performance_score ?? 75).toFixed(1)}</span>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           )}
         </motion.div>

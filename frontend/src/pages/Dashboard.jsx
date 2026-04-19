@@ -165,46 +165,48 @@ export default function Dashboard() {
       >
         <div className="section-title"> Top Ranked Materials</div>
         {loading ? <LoadingSpinner text="Ranking materials..." /> : (
-          <table className="data-table">
-            <thead>
-              <tr>
-                <th>#</th><th>Formula / Elements</th><th>Energy Density</th>
-                <th>Voltage</th><th>Capacity</th><th>Stability</th><th>Score</th>
-              </tr>
-            </thead>
-            <tbody>
-              {ranked.map((m, i) => (
-                <tr key={i}>
-                  <td>
-                    <span style={{ color: i < 3 ? 'var(--gold)' : 'var(--text-muted)', fontWeight: 700 }}>
-                      {i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : `#${m.rank ?? i + 1}`}
-                    </span>
-                  </td>
-                  <td>
-                    <span style={{ fontFamily: 'JetBrains Mono, monospace', color: 'var(--teal)', fontSize: 12 }}>
-                      {m.formula}
-                    </span>
-                  </td>
-                  <td><span style={{ color: 'var(--gold)', fontWeight: 600 }}>{(m.energy_density ?? 0).toFixed(1)} Wh/kg</span></td>
-                  <td>{(m.voltage ?? 0).toFixed(2)} V</td>
-                  <td>{(m.specific_capacity ?? 0).toFixed(0)} mAh/g</td>
-                  <td>
-                    <span style={{ color: (m.stability ?? m.structural_stability ?? 0.05) < 0.05 ? 'var(--green)' : 'var(--gold)' }}>
-                      {(m.stability ?? m.structural_stability ?? 0.05).toFixed(3)} eV/atom
-                    </span>
-                  </td>
-                  <td>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                      <div style={{ flex: 1, height: 5, background: 'var(--bg-surface)', borderRadius: 3 }}>
-                        <div style={{ height: '100%', width: `${m.performance_score ?? 80}%`, background: 'linear-gradient(90deg, var(--teal), var(--blue))', borderRadius: 3 }} />
-                      </div>
-                      <span style={{ color: 'var(--teal)', fontWeight: 700, fontSize: 12, minWidth: 36 }}>{(m.performance_score ?? 80).toFixed(1)}</span>
-                    </div>
-                  </td>
+          <div className="table-responsive">
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th>#</th><th>Formula / Elements</th><th>Energy Density</th>
+                  <th>Voltage</th><th>Capacity</th><th>Stability</th><th>Score</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {ranked.map((m, i) => (
+                  <tr key={i}>
+                    <td>
+                      <span style={{ color: i < 3 ? 'var(--gold)' : 'var(--text-muted)', fontWeight: 700 }}>
+                        {i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : `#${m.rank ?? i + 1}`}
+                      </span>
+                    </td>
+                    <td>
+                      <span style={{ fontFamily: 'JetBrains Mono, monospace', color: 'var(--teal)', fontSize: 12 }}>
+                        {m.formula}
+                      </span>
+                    </td>
+                    <td><span style={{ color: 'var(--gold)', fontWeight: 600 }}>{(m.energy_density ?? 0).toFixed(1)} Wh/kg</span></td>
+                    <td>{(m.voltage ?? 0).toFixed(2)} V</td>
+                    <td>{(m.specific_capacity ?? 0).toFixed(0)} mAh/g</td>
+                    <td>
+                      <span style={{ color: (m.stability ?? m.structural_stability ?? 0.05) < 0.05 ? 'var(--green)' : 'var(--gold)' }}>
+                        {(m.stability ?? m.structural_stability ?? 0.05).toFixed(3)} eV/atom
+                      </span>
+                    </td>
+                    <td>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                        <div style={{ flex: 1, height: 5, background: 'var(--bg-surface)', borderRadius: 3 }}>
+                          <div style={{ height: '100%', width: `${m.performance_score ?? 80}%`, background: 'linear-gradient(90deg, var(--teal), var(--blue))', borderRadius: 3 }} />
+                        </div>
+                        <span style={{ color: 'var(--teal)', fontWeight: 700, fontSize: 12, minWidth: 36 }}>{(m.performance_score ?? 80).toFixed(1)}</span>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </motion.div>
 

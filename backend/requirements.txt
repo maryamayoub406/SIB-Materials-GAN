@@ -6,6 +6,8 @@ cryptography==42.0.7
 pydantic==2.7.1
 python-multipart==0.0.9
 python-dotenv==1.0.1
+passlib[bcrypt]==1.7.4
+python-jose[cryptography]==3.3.0
 
 # ML / Science
 numpy==1.26.4

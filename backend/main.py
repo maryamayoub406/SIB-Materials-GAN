@@ -20,7 +20,7 @@ load_dotenv(Path(__file__).parent / ".env")
 
 from backend.database import engine, check_db_connection
 from backend.models.db_models import Base
-from backend.routers import predict, generate, degradation, rank, materials
+from backend.routers import predict, generate, degradation, rank, materials, auth
 
 # ----------------------------------------------------------------
 # Lifespan: startup / shutdown
@@ -99,6 +99,7 @@ app.include_router(generate.router)
 app.include_router(degradation.router)
 app.include_router(rank.router)
 app.include_router(materials.router)
+app.include_router(auth.router)
 
 
 # ----------------------------------------------------------------
